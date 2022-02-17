@@ -30,7 +30,7 @@
                     <span>Entradas</span>
                     <img src="./assets/income.svg" alt="Imagem de entrada">
                 </h3>
-                <p>R$5.000,00</p>
+                <p id="incomeDisplay">R$5.000,00</p>
             </div>
 
             <div class="card">
@@ -38,7 +38,7 @@
                     <span>Saídas</span>
                     <img src="./assets/expense.svg" alt="Imagem de saída">
                 </h3>
-                <p>R$3.000,00</p>
+                <p id="expenseDisplay">R$2.000,00</p>
             </div>
 
             <div class="card total">
@@ -46,7 +46,7 @@
                     <span>Total</span>
                     <img src="./assets/total.svg" alt="Imagem de total">
                 </h3>
-                <p>R$3.000,00</p>
+                <p id="totalDisplay">R$3.000,00</p>
             </div>
         </section>
 
@@ -66,6 +66,7 @@
                 </thead>
 
                 <tbody>
+                    <!--
                     <tr>
                         <td class="description">Luz</td>
                         <td class="expense">- R$500,00</td>
@@ -92,7 +93,7 @@
                             <img src="./assets/minus.svg" alt="Remover transação">
                         </td>
                     </tr>
-
+                    -->
                 </tbody>
             </table>
         </section>
@@ -104,7 +105,7 @@
             <div id="form">
                 <h2>Nova Transação</h2>
 
-                <form action="">
+                <form action="" onsubmit="Form.submit(event)">
 
                     <div class="input-group">
 
@@ -145,17 +146,8 @@
         <p>Dev.Finance$</p>
     </footer>
 
-    <script>
-        Modal = {
-            open() {
-                document.querySelector('.modal-overlay')
-                .classList.add('active');
-            },
-            close() {
-                document.querySelector('.modal-overlay')
-                .classList.remove('active');
-            }
-        }
+    <script src="./script.js">
+
     </script>
 
 </body>
