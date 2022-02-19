@@ -3,35 +3,25 @@ Modal = {
         document.querySelector('.modal-overlay')
             .classList.add('active');
     },
+
     close() {
         document.querySelector('.modal-overlay')
             .classList.remove('active');
     }
 }
 
-const Transaction = {
-    all: [
-        {
-        description: 'Luz',
-        amount: -50000,
-        date: '23/01/2021'
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
     },
-    {
-        description: 'Website',
-        amount: 500000,
-        date: '23/01/2021'
-    },
-    {
-        description: 'Internet',
-        amount: -20000,
-        date: '23/01/2021'
-    },
-    {
-        description: 'App',
-        amount: 200000,
-        date: '23/01/2021'
+
+    set(transactions) {
+        localStorage.setItem("dev.finances:transaction", JSON.stringify(transactions))
     }
-    ],
+}
+
+const Transaction = {
+    all: Storage.get(),
 
     add(transaction) {
         Transaction.all.push(transaction)
@@ -89,6 +79,7 @@ const DOM = {
         DOM.transactionsContainer.appendChild(tr)
 
     },
+
     innerHTMLTransaction(transaction, index) {
         const CSSclass = transaction.amount > 0 ? "income" : "expense"
 
@@ -116,6 +107,7 @@ const DOM = {
         document.getElementById('totalDisplay')
         .innerHTML = Utils.formatCurrency(Transaction.total());
     },
+
     clearTransactions() {
         DOM.transactionsContainer.innerHTML = ""
     }
@@ -224,7 +216,10 @@ const App = {
         
         DOM.updateBalance()
 
+        Storage.set(Transaction.all)
+
     },
+    
     reload() {
         DOM.clearTransactions()
 

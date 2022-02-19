@@ -298,7 +298,7 @@ footer {
 
 
 /* === Responsive === */
-@media (min-width: 800px) {
+@media (min-width: 850px) {
     html {
         font-size: 87.5%;
     }
