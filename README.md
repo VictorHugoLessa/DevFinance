@@ -38,4 +38,6 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Feito com ♥
+<h4 align="center">
+    Feito com 💜 by <a href="https://www.linkedin.com/in/victorhugolessa/" target="_blank">Victor Hugo</a>
+</h4>
